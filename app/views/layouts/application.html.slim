@@ -1,0 +1,29 @@
+doctype html
+html.no-js lang="en"
+  head
+    meta charset="utf-8"
+    title
+      = content_for?(:title) ? yield(:title) : default_title
+    meta name="description" content="#{content_for?(:meta_description) ? yield(:meta_description) : default_meta_description}"
+    meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"
+    - if Rails.env.staging?
+      meta name="robots" content="noindex,nofollow"
+
+    = csrf_meta_tags
+
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+
+  body class="#{body_class} #{yield (:additional_body_class)}"
+    .container
+      - if content_for?(:content)
+        = yield :content
+      - else
+        = yield
+    // footer
+    - if content_for?(:footer)
+        = yield :footer
+    - else
+      = render 'layouts/footer'
+
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield :js
