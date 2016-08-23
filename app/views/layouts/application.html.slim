@@ -14,16 +14,16 @@ html.no-js lang="en"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
 
   body class="#{body_class} #{yield (:additional_body_class)}"
-    / .container
-    /   - if content_for?(:content)
-    /     = yield :content
-    /   - else
-    /     = yield
-    / // footer
-    / - if content_for?(:footer)
-    /     = yield :footer
-    / - else
-    /   = render 'layouts/footer'
+    .page-wrap role='main'
+      = render 'layouts/header'
+      = render 'shares/notices'
 
-    / = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
-    / = yield :js
+      - if content_for?(:content)
+        = yield :content
+      - else
+        = yield
+    // footer
+    = render 'layouts/footer'
+
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = yield :js
