@@ -1,0 +1,53 @@
+header {
+}
+
+.logo {
+  display: block;
+  float: left;
+  line-height: 71px;
+  margin-right: 20px;
+}
+
+nav.main-nav {
+  float: right;
+  font-size: 14px;
+
+  li {
+    display: inline-block
+  }
+
+}
+.navigation-menu {
+  &__link {
+    color: #05262d;
+    display: block;
+    height: 71px;
+    line-height: 71px;
+    padding: 0 20px;
+
+    .on {
+      background: #fff;
+    }
+
+    &:hover {
+      color: #d13f4b;
+    }
+
+    &--registration {
+      line-height: 40px;
+      height: auto;
+      background: #fff;
+      color: #f25561;
+      border: 2px solid #f25561;
+      border-radius: 3px;
+      padding: 0 50px;
+      margin-left: 20px;
+
+      &:hover {
+        background: #d13f4b;
+        color: #fff;
+        border: 2px solid #d13f4b;
+      }
+    }
+  }
+}
