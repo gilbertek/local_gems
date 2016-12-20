@@ -32,6 +32,6 @@ module ApplicationHelper
   end
 
   def mail_to_support
-    mail_to('support@blissful.com')
+    mail_to('support@.localgems.io')
   end
 end
